@@ -1,50 +1,42 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int clumsyFactorial(int n){
-    stack<int> s;
-    s.push(n);
-    n--;
-    int i=0;
-    // i=0 means multiply, 1 means divide, 2 means add, 3 means subtract 
-    // 1st priority is multiply, then divide, then add, then subtract
-    // phale multiply or divide karke hi last mein add or subtract karna hai
-    while(n){
-        // for *
-        if(i==0){
-            int num = s.top();
-            s.pop();
-            num *= n;
-            s.push(num);
-        }else if(i==1){
-            // for divide /
-            int num = s.top();
-            s.pop();
-            num /= n;
-            s.push(num);
-        }else if(i==2){
-            // for +
-            s.push(n);
-        }else{
-            // for -
-            s.push(-n);
-        }
-        i = (i + 1) % 4;
-        n--;
-    }
+class Solution {
+public:
+    int getMaxArea(vector<int> &arr) {
+        int n = arr.size();
+        vector<int> NSR(n, n);  // Next Smaller to Right
+        vector<int> NSL(n, -1); // Next Smaller to Left
+        stack<int> st;
 
-    // now we have to add all the elements in the stack
-    //kyuki multiply or divide karke hi add or subtract karna hai
-    int result = 0;
-    while(!s.empty()){
-        result += s.top();
-        s.pop();
+        // Find Next Smaller to Right (NSR)
+        for (int i = 0; i < n; i++) {
+            while (!st.empty() && arr[i] < arr[st.top()]) {
+                NSR[st.top()] = i;
+                st.pop();
+            }
+            st.push(i);
+        }
+
+        // Clear stack
+        while (!st.empty()) st.pop();
+
+        // Find Next Smaller to Left (NSL)
+        for (int i = n - 1; i >= 0; i--) {
+            while (!st.empty() && arr[i] < arr[st.top()]) {
+                NSL[st.top()] = i; // ✅ FIXED: Previously mistakenly used NSR
+                st.pop();
+            }
+            st.push(i);
+        }
+
+        // Calculate max area
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int width = NSR[i] - NSL[i] - 1;
+            ans = max(ans, arr[i] * width);
+        }
+
+        return ans;
     }
-    return result;
-}
-int main(){
-    int n;
-    cin >> n;
-    cout << clumsyFactorial(n) << endl;
-    return 0;
-}
+};
