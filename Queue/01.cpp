@@ -21,12 +21,13 @@ public:
     {
         if (frontIndex < rearIndex)
         {
-            arr.erase(arr.begin() + frontIndex);
             frontIndex++;
-            // Adjust frontIndex if it exceeds rearIndex
-            if (frontIndex > rearIndex)
+            // Optional: Reset the queue if frontIndex becomes too large
+            if (frontIndex == rearIndex)
             {
-                frontIndex = rearIndex;
+                arr.clear();
+                frontIndex = 0;
+                rearIndex = 0;
             }
         }
         else
@@ -60,7 +61,7 @@ public:
 
 int main()
 {
-    Queue q;
+    Queue q; // No <int> needed; class is not a template
     q.enqueue(1);
     q.enqueue(2);
     q.enqueue(3);
