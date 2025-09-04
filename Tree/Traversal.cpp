@@ -80,6 +80,26 @@ void PostorderTraversal(Node* root){
     cout << root->data << " ";
 }
 
+
+// Level Order Traversal
+void LevelOrderTraversal(Node* root){
+    if (!root) return;
+
+    queue<Node*> q;
+    q.push(root);   
+
+    while (!q.empty()) {
+        Node* temp = q.front();
+        q.pop();
+        cout << temp->data << " ";
+
+        if (temp->left) q.push(temp->left);
+        if (temp->right) q.push(temp->right);
+    }
+}
+ 
+
+
 int main()
 {
     Node *root = BinaryTree();
@@ -89,5 +109,7 @@ int main()
     PreorderTraversal(root);
     cout << "\nPostorder Traversal: ";
     PostorderTraversal(root);
+    cout << "\nLevel Order Traversal: ";
+    LevelOrderTraversal(root);
     return 0;
 }
