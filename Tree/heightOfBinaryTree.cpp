@@ -25,6 +25,7 @@ int heightOfBinaryTree(Node* root) {
     return 1 + max(leftHeight, rightHeight);
 }
 
+<<<<<<< HEAD
 // using level order traversal
 int heightOfBinaryTreeIterative(Node* root) {
     if (root == nullptr) {
@@ -50,6 +51,8 @@ int heightOfBinaryTreeIterative(Node* root) {
     return height;
 }
 
+=======
+>>>>>>> 0e33bb6b43646af21838f024f23a57164dfeaeaa
 int main() {
     Node* root = new Node(1);
     root->left = new Node(2);
