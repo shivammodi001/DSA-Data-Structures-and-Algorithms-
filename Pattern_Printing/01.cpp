@@ -8,11 +8,7 @@ int main()
     cin >> row;
     cout << "col: ";
     cin >> col;
-    // * * * * *
-    // *       *
-    // *       *
-    // * * * * *
-
+    
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
@@ -28,13 +24,12 @@ int main()
         }
         cout << endl;
     }
-
-    // *
-    // * *
-    // * * *
-    // * * * *
+    
     // * * * * *
-
+    // *       *
+    // *       *
+    // * * * * *
+    
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
@@ -50,13 +45,13 @@ int main()
         }
         cout << endl;
     }
+    // *
+    // * *
+    // * * *
+    // * * * *
+    // * * * * *
 
-    // * * * * * * * * *
-    // * * * *   * * * *
-    // * * *       * * *
-    // * *           * *
-    // *               *
-
+    
     for (int i = 1; i <= row; i++)
     {
         for (int j = 1; j <= col; j++)
@@ -72,12 +67,13 @@ int main()
         }
         cout << endl;
     }
-
-    //       *
-    //     * * *
-    //   * * * * *
-    // * * * * * * *
-
+    // * * * * * * * * *
+    // * * * *   * * * *
+    // * * *       * * *
+    // * *           * *
+    // *               *
+    
+    
     for (int i = 1; i <= row; i++)
     {
         for (int j = 1; j <= col; j++)
@@ -93,12 +89,11 @@ int main()
         }
         cout << endl;
     }
-
-    // a
-    // a b
-    // a b c
-    // a b c d
-    // a b c d e
+    
+    //       *
+    //     * * *
+    //   * * * * *
+    // * * * * * * *
     for (int i = 0; i < row; i++)
     {
 
@@ -111,3 +106,9 @@ int main()
         cout << endl;
     }
 }
+
+// a
+// a b
+// a b c
+// a b c d
+// a b c d e
