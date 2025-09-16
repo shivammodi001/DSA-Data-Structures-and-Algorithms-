@@ -25,34 +25,31 @@ int heightOfBinaryTree(Node* root) {
     return 1 + max(leftHeight, rightHeight);
 }
 
-<<<<<<< HEAD
-// using level order traversal
-int heightOfBinaryTreeIterative(Node* root) {
-    if (root == nullptr) {
-        return -1; // empty tree = -1
-    }
-    queue<Node*> q;
-    q.push(root);
-    int height = -1; // start from -1 to count edges
-    while (!q.empty()) {
-        int levelSize = q.size();
-        height++; // increment height for each level
-        for (int i = 0; i < levelSize; i++) {
-            Node* currentNode = q.front();
-            q.pop();
-            if (currentNode->left) {
-                q.push(currentNode->left);
-            }
-            if (currentNode->right) {
-                q.push(currentNode->right);
-            }
-        }
-    }
-    return height;
-}
+// int heightOfBinaryTreeIterative(Node* root) {
+//     if (root == nullptr) {
+//         return -1; // empty tree = -1
+//     }
+//     queue<Node*> q;
+//     q.push(root);
+//     int height = -1; // start from -1 to count edges
+//     while (!q.empty()) {
+//         int levelSize = q.size();
+//         height++; // increment height for each level
+//         for (int i = 0; i < levelSize; i++) {
+//             Node* currentNode = q.front();
+//             q.pop();
+//             if (currentNode->left) {
+//                 q.push(currentNode->left);
+//             }
+//             if (currentNode->right) {
+//                 q.push(currentNode->right);
+//             }
+//         }
+//     }
+//     return height;
+// }
 
-=======
->>>>>>> 0e33bb6b43646af21838f024f23a57164dfeaeaa
+
 int main() {
     Node* root = new Node(1);
     root->left = new Node(2);
