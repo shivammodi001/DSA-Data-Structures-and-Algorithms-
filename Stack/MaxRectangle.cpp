@@ -6,7 +6,7 @@ public:
     int findRecArea(vector<int>& heights) {
         int n = heights.size();
         vector<int> NSR(n, n);  // Next Smaller to Right
-        vector<int> NSL(n, -1); // Next Smaller to Left
+        vector<int> NSL(n, -1); // Next Smaller to Left 
         stack<int> st;
 
         // NSR
